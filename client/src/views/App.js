@@ -5,10 +5,12 @@ class ItemControls extends React.Component {
 
   render() {
     return (
-      <div>
-        <button>Open All</button>
-        <button>Close All</button>
-        <button>Toggle All</button>
+      <div className="item-controls">
+        <div>
+          <button>Open All</button>
+          <button>Close All</button>
+          <button>Toggle All</button>
+        </div>
         <button>Add</button>
       </div>
     );
@@ -33,7 +35,7 @@ class ItemArea extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="item-area">
         <Item title="Title1" content="content1"/>
         <Item title="Title2" content="content2"/>
       </div>
@@ -53,7 +55,7 @@ class SearchBar extends React.Component {
 class Header extends React.Component {
 
   render() {
-    return <h1>{this.props.title}</h1>;
+    return <h1 className="text-center">{this.props.title}</h1>;
   }
 
 }
@@ -62,7 +64,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="app">
         <Header title="Verbling Challenge"/>
         <SearchBar/>
         <ItemArea/>

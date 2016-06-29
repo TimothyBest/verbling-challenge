@@ -1,4 +1,37 @@
+/* Elements */
 body {
-  font-family: Lucida Console, Monaco5, monospace;
+  font-family: Roboto, Tahoma, Verdana, sans-serif;
   height: 100vh;
+}
+
+input {
+  width: 100%;
+}
+
+/* Helpers */
+.text-center {
+  text-align: center;
+}
+
+/* Base */
+.app-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  width: 400px;
+}
+
+.item-area {
+  height: 400px;
+  overflow-y: scroll
+}
+
+.item-controls {
+  align-items: baseline;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
 }
