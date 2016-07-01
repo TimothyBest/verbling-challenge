@@ -31,13 +31,21 @@ class Item extends React.Component {
 
 }
 
-class ItemArea extends React.Component {
+class ItemList extends React.Component {
 
   render() {
+    var rows = [];
+    var searchTerm = this.props.searchTerm;
+
+    this.props.items.forEach(function(item) {
+      if (item.title.indexOf(searchTerm) === -1 && item.content.indexOf(searchTerm) === -1) {
+        return;
+      }
+      rows.push(<Item title={item.title} content={item.content} />);
+    });
     return (
       <div className="item-area">
-        <Item title="Title1" content="content1"/>
-        <Item title="Title2" content="content2"/>
+        {rows}
       </div>
     );
   }
@@ -46,8 +54,19 @@ class ItemArea extends React.Component {
 
 class SearchBar extends React.Component {
 
+  handleChange(event) {
+    this.props.onUserInput(
+      this.refs.searchTerm.value
+    );
+  }
+
   render() {
-    return <input placeholder="Search"/>;
+    return <input
+      placeholder="Search"
+      value={this.props.searchTerm}
+      ref="searchTerm"
+      onChange={(e) => this.handleChange(e)}
+    />;
   }
 
 }
@@ -60,15 +79,44 @@ class Header extends React.Component {
 
 }
 
+class ItemListForm extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: "",
+    };
+  }
+
+  handleUserInput(searchTerm) {
+    this.setState({
+      searchTerm: searchTerm
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        <SearchBar searchTerm={this.state.searchTerm} onUserInput={(e) => this.handleUserInput(e)}/>
+        <ItemList items={ITEMS} searchTerm={this.state.searchTerm}/>
+        <ItemControls searchTerm={this.state.searchTerm}/>
+      </div>
+    );
+  }
+}
+
+var ITEMS = [
+  {title: "Title1", content: "content1"},
+  {title: "Title2", content: "content2"}
+];
+
 export default class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
+      <div className="verbling-challenge">
         <Header title="Verbling Challenge"/>
-        <SearchBar/>
-        <ItemArea/>
-        <ItemControls/>
+        <ItemListForm items={ITEMS}/>
       </div>
     );
   }

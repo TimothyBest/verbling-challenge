@@ -5,7 +5,8 @@ body {
 }
 
 input {
-  width: 100%;
+  width: 396px;
+  border-size: 2px;
 }
 
 /* Helpers */
@@ -20,7 +21,7 @@ input {
   justify-content: center;
 }
 
-.app {
+.verbling-challenge {
   width: 400px;
 }
 
