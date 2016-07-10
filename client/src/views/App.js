@@ -1,29 +1,10 @@
 import React from "react";
 
 
-class ItemControls extends React.Component {
-
-  handleDisplayChange(event, action) {
-    this.props.onAllItemDisplay(action);
-  }
-
-  addItem() {
-    var title = prompt("Title", "");
-    var content = prompt("Content", "");
-    this.props.addItem(title, content);
-  }
+class Header extends React.Component {
 
   render() {
-    return (
-      <div className="item-controls">
-        <div className="button-group">
-          <button onClick={(event) => this.handleDisplayChange(event, "open")}>Open All</button>
-          <button onClick={(event) => this.handleDisplayChange(event, "close")}>Close All</button>
-          <button onClick={(event) => this.handleDisplayChange(event, "toggle")}>Toggle All</button>
-        </div>
-        <button onClick={(event) => this.addItem(event)} className="button-green">Add</button>
-      </div>
-    );
+    return <h1 className="text-center">{this.props.title}</h1>;
   }
 }
 
@@ -104,10 +85,29 @@ class SearchBar extends React.Component {
   }
 }
 
-class Header extends React.Component {
+class ItemControls extends React.Component {
+
+  handleDisplayChange(event, action) {
+    this.props.onAllItemDisplay(action);
+  }
+
+  addItem() {
+    var title = prompt("Title", "");
+    var content = prompt("Content", "");
+    this.props.addItem(title, content);
+  }
 
   render() {
-    return <h1 className="text-center">{this.props.title}</h1>;
+    return (
+      <div className="item-controls">
+        <div className="button-group">
+          <button onClick={(event) => this.handleDisplayChange(event, "open")}>Open All</button>
+          <button onClick={(event) => this.handleDisplayChange(event, "close")}>Close All</button>
+          <button onClick={(event) => this.handleDisplayChange(event, "toggle")}>Toggle All</button>
+        </div>
+        <button onClick={(event) => this.addItem(event)} className="button-green">Add</button>
+      </div>
+    );
   }
 }
 
