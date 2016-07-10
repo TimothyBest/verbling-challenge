@@ -7,10 +7,10 @@ body {
 
 button {
   color: #fff;
-  background-color: #129dfa;
+  cursor: pointer;
+  background-color: #4eb0f7;
   border: none;
   border-bottom: 2px solid #1d9af5;
-  border-color: #4eb0f7;
   border-radius: 4px;
   padding: 5px 10px;
 }
