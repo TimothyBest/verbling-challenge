@@ -3,19 +3,25 @@ import React from 'react';
 
 class ItemControls extends React.Component {
 
-  handleClick(event, action) {
+  handleDisplayChange(event, action) {
     this.props.onAllItemDisplay(action);
+  }
+
+  addItem(event) {
+    var title = prompt("Title", "");
+    var content = prompt("Content", "");
+    this.props.addItem(title, content);
   }
 
   render() {
     return (
       <div className="item-controls">
         <div className="button-group">
-          <button onClick={(event) => this.handleClick(event, "open")}>Open All</button>
-          <button onClick={(event) => this.handleClick(event, "close")}>Close All</button>
-          <button onClick={(event) => this.handleClick(event, "toggle")}>Toggle All</button>
+          <button onClick={(event) => this.handleDisplayChange(event, "open")}>Open All</button>
+          <button onClick={(event) => this.handleDisplayChange(event, "close")}>Close All</button>
+          <button onClick={(event) => this.handleDisplayChange(event, "toggle")}>Toggle All</button>
         </div>
-        <button className="button-green">Add</button>
+        <button onClick={(event) => this.addItem(event)} className="button-green">Add</button>
       </div>
     );
   }
@@ -145,6 +151,15 @@ class ItemListForm extends React.Component {
     });
   }
 
+  addItem(title, content) {
+    var items = this.state.items;
+
+    items.push({title: title, content: content, open: true});
+    this.setState({
+       items: items
+    });
+  }
+
   render() {
     return (
       <div>
@@ -158,7 +173,10 @@ class ItemListForm extends React.Component {
           display={this.state.display}
           toggleItem={(key) => this.toggleItem(key)}
         />
-        <ItemControls onAllItemDisplay={(action) => this.handleAllItemDisplay(action)}/>
+        <ItemControls
+          onAllItemDisplay={(action) => this.handleAllItemDisplay(action)}
+          addItem={(title, content) => this.addItem(title, content)}
+        />
       </div>
     );
   }
