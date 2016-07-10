@@ -28,11 +28,20 @@ class Item extends React.Component {
   }
 
   render() {
+    var arrow = (<span>▸</span>);
+    var content = null;
+
+    if (this.props.open) {
+      arrow = (<span>▾</span>);
+      content = this.props.content;
+    }
     return (
-      <details index={this.props.index} open={open}>
-        <summary onClickCapture={(event) => this.handleClick(event)}>{this.props.title}</summary>
-        <p>{this.props.content}</p>
-      </details>
+      <div className="item" onClick={(event) => this.handleClick(event)}>
+        <h5>
+          {arrow} {this.props.title}
+        </h5>
+        <p>{content}</p>
+      </div>
     );
   }
 }

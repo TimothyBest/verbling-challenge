@@ -9,10 +9,6 @@ input {
   border-size: 2px;
 }
 
-summary {
-  height: 50px;
-}
-
 /* Helpers */
 .text-center {
   text-align: center;
@@ -39,4 +35,18 @@ summary {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+}
+
+.item {
+  cursor: pointer;
+  margin: 15px 0;
+  max-height: 50px;
+  padding: 0;
+}
+.item h5 {
+  margin: 0 0 10px 0;
+
+}
+.item p {
+  margin: 0;
 }
