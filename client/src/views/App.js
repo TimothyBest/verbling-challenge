@@ -10,12 +10,12 @@ class ItemControls extends React.Component {
   render() {
     return (
       <div className="item-controls">
-        <div>
+        <div className="button-group">
           <button onClick={(event) => this.handleClick(event, "open")}>Open All</button>
           <button onClick={(event) => this.handleClick(event, "close")}>Close All</button>
           <button onClick={(event) => this.handleClick(event, "toggle")}>Toggle All</button>
         </div>
-        <button>Add</button>
+        <button className="button-green">Add</button>
       </div>
     );
   }

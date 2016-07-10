@@ -1,12 +1,30 @@
 /* Elements */
 body {
-  font-family: Roboto, Tahoma, Verdana, sans-serif;
+  color: #787C83;
+  font-family: "Open Sans", Arial, sans-serif;
   height: 100vh;
 }
 
+button {
+  color: #fff;
+  background-color: #129dfa;
+  border: none;
+  border-bottom: 2px solid #1d9af5;
+  border-color: #4eb0f7;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #787C83;
+  font-family: 'MerriweatherSans', Arial, sans-serif;
+}
+
 input {
-  width: 396px;
-  border-size: 2px;
+  width: 374px;
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
+  padding: 6px 12px;
 }
 
 /* Helpers */
@@ -26,8 +44,11 @@ input {
 }
 
 .item-area {
+  border: 1px solid #d8d8d8;
+  border-radius: 4px;
   height: 400px;
-  overflow-y: scroll
+  overflow-y: scroll;
+  margin: 10px 0 20px 0;
 }
 
 .item-controls {
@@ -39,14 +60,29 @@ input {
 
 .item {
   cursor: pointer;
-  margin: 15px 0;
+  margin: 15px;
   max-height: 50px;
   padding: 0;
 }
+
 .item h5 {
   margin: 0 0 10px 0;
 
 }
+
 .item p {
   margin: 0;
+}
+
+.button-group button {
+  margin-right: 5px;
+}
+
+.button-group button:last-child {
+  margin-right: 0;
+}
+
+.button-green {
+  background-color: #97e245;
+  border-color: #7dd421;
 }
