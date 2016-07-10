@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 
 class ItemControls extends React.Component {
@@ -7,7 +7,7 @@ class ItemControls extends React.Component {
     this.props.onAllItemDisplay(action);
   }
 
-  addItem(event) {
+  addItem() {
     var title = prompt("Title", "");
     var content = prompt("Content", "");
     this.props.addItem(title, content);
@@ -97,7 +97,7 @@ class ItemList extends React.Component {
 
 class SearchBar extends React.Component {
 
-  handleChange(event) {
+  handleChange() {
     this.props.onUserSearch(
       this.refs.searchTerm.value
     );
@@ -147,7 +147,7 @@ class ItemListForm extends React.Component {
 
     items[index].open = !items[index].open;
     this.setState({
-       items: items
+      items: items
     });
   }
 
@@ -156,7 +156,7 @@ class ItemListForm extends React.Component {
 
     items.push({title: title, content: content, open: true});
     this.setState({
-       items: items
+      items: items
     });
   }
 
