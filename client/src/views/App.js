@@ -67,15 +67,6 @@ class ItemList extends React.Component {
         return;
       }
 
-      if (itemList.props.display == "open") {
-        item.open = true;
-      }
-      else if (itemList.props.display == "close") {
-        item.open = false;
-      }
-      else if (itemList.props.display == "toggle") {
-        item.open = !item.open;
-      }
       rows.push(
         <Item
           key={key}
@@ -126,7 +117,6 @@ class ItemListForm extends React.Component {
     super(props);
     this.state = {
       searchTerm: "",
-      display: "",
       items: [
         {title: "Title1", content: "content1", open: false},
         {title: "Title2", content: "content2", open: true}
@@ -139,7 +129,22 @@ class ItemListForm extends React.Component {
   }
 
   handleAllItemDisplay(action) {
-    this.setState({display: action});
+    var items = this.state.items;
+
+    items.forEach(function(item, index) {
+      if (action === "open") {
+        item.open = true;
+      }
+      else if (action === "close") {
+        item.open = false;
+      }
+      else if (action === "toggle") {
+        item.open = !item.open;
+      }
+    });
+    this.setState({
+      items: items
+    });
   }
 
   toggleItem(index) {
@@ -170,7 +175,6 @@ class ItemListForm extends React.Component {
         <ItemList
           items={this.state.items}
           searchTerm={this.state.searchTerm}
-          display={this.state.display}
           toggleItem={(key) => this.toggleItem(key)}
         />
         <ItemControls
