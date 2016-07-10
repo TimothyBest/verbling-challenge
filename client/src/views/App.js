@@ -15,19 +15,20 @@ class Item extends React.Component {
   }
 
   render() {
-    var arrow = (<span>▸</span>);
+    var itemClasses = ["item",];
     var content = null;
 
     if (this.props.open) {
-      arrow = (<span>▾</span>);
+      itemClasses.push("open");
       content = this.props.content;
     }
+
     return (
-      <div className="item" onClick={(event) => this.handleClick(event)}>
-        <h5>
-          {arrow} {this.props.title}
+      <div className={itemClasses.join(" ")} onClick={(event) => this.handleClick(event)}>
+        <h5 className="title">
+          {this.props.title}
         </h5>
-        <p>{content}</p>
+        <p className="content">{content}</p>
       </div>
     );
   }

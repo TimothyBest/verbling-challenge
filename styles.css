@@ -61,16 +61,27 @@ input {
 .item {
   cursor: pointer;
   margin: 15px;
-  max-height: 50px;
+  min-height: 50px;
   padding: 0;
 }
 
-.item h5 {
+.item .title {
   margin: 0 0 10px 0;
-
 }
 
-.item p {
+.item .title:before {
+  content: "\25B8\0020";
+}
+
+.item.open .title:before {
+  content: "\25BE\0020";
+}
+
+.item.open .title:after {
+  content: "\2026";
+}
+
+.item .content {
   margin: 0;
 }
 
